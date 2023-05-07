@@ -11,6 +11,16 @@ using namespace std;
             this->data = data;
             this->next= NULL;
         }
+        ~Node(){
+            int value = this->data;
+            if(this->next !=NULL){
+                this-> next = NULL;
+                delete next;
+                
+            }
+            cout<<"Memory is free from heap "<<value<<endl;
+        }
+        
     };
 
  
@@ -57,7 +67,27 @@ using namespace std;
         nodetoinsert -> next = temp -> next;
         temp -> next = nodetoinsert;
     }
-
+    void deleteNode(Node* &head,int position){
+        if(position == 1){
+            Node*temp = head;
+            head = head->next;
+            temp->next = NULL;
+            delete temp;
+        }
+        else{
+            Node*current = head;
+            Node*prev = NULL;
+            int count = 1;
+            while(count<  position){
+                prev = current;
+                current = current-> next;
+                count++;
+            }
+            prev -> next = current->next;
+            current-> next = NULL;
+            delete current;
+        }
+    }
     int main(){
         Node* node1 = new Node(10);
         Node*head = node1;
@@ -69,5 +99,6 @@ using namespace std;
         printlist(head);
         cout<<"head is "<<head->data<<endl;
         cout<<"tail is "<<tail->data<<endl;
-
+        deleteNode(head, 4);
+        printlist(head);
     }
