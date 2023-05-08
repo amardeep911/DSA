@@ -101,4 +101,6 @@ using namespace std;
         cout<<"tail is "<<tail->data<<endl;
         deleteNode(head, 4);
         printlist(head);
+        cout<<"head is "<<head->data<<endl;
+        cout<<"tail is "<<tail->data<<endl;
     }
