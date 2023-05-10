@@ -103,4 +103,5 @@ using namespace std;
         printlist(head);
         cout<<"head is "<<head->data<<endl;
         cout<<"tail is "<<tail->data<<endl;
+        cout<<"Tail is coming zero we have to fix that"<<endl;
     }
